@@ -12,3 +12,10 @@ export async function PATCH(request: Request, { params }: { params: {id: string}
     comments[findIndex] = comment;
     return Response.json(comments[findIndex])
 }
+
+export async function DELETE(request: Request, { params }: { params : { id: string}}) {
+    const findIndex = comments.findIndex(comment => comment.id === parseInt(params.id));
+    const deletedComment = comments[findIndex];
+    comments.splice(findIndex, 1);
+    return Response.json(deletedComment);
+}
