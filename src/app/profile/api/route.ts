@@ -13,13 +13,13 @@ export async function GET(request: NextRequest){
     const theme = request.cookies.get("theme");
     console.log(theme)
 
-    cookies().set("resultsPerPage", "20");
+    cookies().set("resultsPerPage", "20"); // second approach to set cookies
     console.log(cookies().get('resultsPerPage'));
 
     return new Response("<h1>Hello, Mithun!</h1>",{
         headers: {
             "Content-Type": "text/html",
-            "Set-cookie": "theme=dark"
+            "Set-cookie": "theme=dark" // first approach to setting cookie
         }
     });
 }
